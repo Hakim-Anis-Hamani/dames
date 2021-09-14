@@ -11,6 +11,7 @@ public class Damier {
         for (int i = 0; i < 50; i++) {
             damier.add(null);
         }
+        System.out.println(damier.size());
     }
 
     public void ajouterPion(int position,Pion pion) {
