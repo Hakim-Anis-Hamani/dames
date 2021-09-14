@@ -3,7 +3,13 @@ package cstjean.mobile.dames;
 import java.util.LinkedList;
 import java.util.List;
 
+/**
+ * Information pour l'objet Damier.
+ *
+ * @author Hakim-Anis Hamani
+ */
 public class Damier {
+
     private final List<Pion> damier = new LinkedList<>();
     private int nombrePion = 0;
 
@@ -14,7 +20,7 @@ public class Damier {
         System.out.println(damier.size());
     }
 
-    public void ajouterPion(int position,Pion pion) {
+    public void ajouterPion(int position, Pion pion) {
         damier.set(position, pion);
         nombrePion++;
     }

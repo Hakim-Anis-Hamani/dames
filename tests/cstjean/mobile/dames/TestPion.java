@@ -2,8 +2,16 @@ package cstjean.mobile.dames;
 
 import junit.framework.TestCase;
 
+/**
+ * Tests de la classe Pion.
+ *
+ * @author Hakim-Anis Hamani
+ */
 public class TestPion extends TestCase {
 
+    /**
+     * Methode pour la création des test.
+     */
     public void testCreer() {
         String couleur1 = "Noir";
         Pion pion1 = new Pion(couleur1);

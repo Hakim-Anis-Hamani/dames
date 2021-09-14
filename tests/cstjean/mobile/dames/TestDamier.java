@@ -2,6 +2,11 @@ package cstjean.mobile.dames;
 
 import junit.framework.TestCase;
 
+/**
+ * Test de la classe Damier.
+ *
+ * @author Hakim-Anis Hamani
+ */
 public class TestDamier extends TestCase {
 
     public void testCreer() {
@@ -15,13 +20,13 @@ public class TestDamier extends TestCase {
         damier.initialiseDamier();
 
         damier.ajouterPion(38, pion1);
-        assertEquals( 1 , damier.getNombrePions());
+        assertEquals(1, damier.getNombrePions());
 
         damier.ajouterPion(42, pion2);
-        assertEquals( 2 , damier.getNombrePions());
+        assertEquals(2, damier.getNombrePions());
 
-        assertEquals( pion1 , damier.getPion(38));
-        assertEquals( pion2 , damier.getPion(42));
+        assertEquals(pion1, damier.getPion(38));
+        assertEquals(pion2, damier.getPion(42));
         assertEquals("Noir", damier.getPion(38).getCouleur());
     }
 }
