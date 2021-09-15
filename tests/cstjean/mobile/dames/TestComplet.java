@@ -9,7 +9,7 @@ import junit.framework.TestSuite;
  */
 public class TestComplet {
     /**
-     * Methode pour créer la suite de test
+     * Methode pour créer la suite de test.
      *
      * @return suite de test
      */

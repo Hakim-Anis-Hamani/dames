@@ -6,7 +6,7 @@ package cstjean.mobile.dames;
  * @author Hakim-Anis Hamani
  */
 public class Pion {
-    /**Couleur du pion*/
+    /**Couleur du pion.*/
     private final String couleur;
 
     /**

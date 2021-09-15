@@ -9,6 +9,10 @@ import junit.framework.TestCase;
  */
 public class TestDamier extends TestCase {
 
+    /**
+     * Methode pour la création des test de la classe Damier.
+     */
+
     public void testCreer() {
         String couleur1 = "Noir";
         Pion pion1 = new Pion(couleur1);
@@ -17,7 +21,6 @@ public class TestDamier extends TestCase {
         Pion pion2 = new Pion(couleur2);
 
         Damier damier = new Damier();
-        damier.initialiseDamier();
 
         damier.ajouterPion(38, pion1);
         assertEquals(1, damier.getNombrePions());

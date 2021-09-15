@@ -10,7 +10,7 @@ import junit.framework.TestCase;
 public class TestPion extends TestCase {
 
     /**
-     * Methode pour la création des test.
+     * Methode pour la création des test de la classe Pion.
      */
     public void testCreer() {
         String couleur1 = "Noir";
