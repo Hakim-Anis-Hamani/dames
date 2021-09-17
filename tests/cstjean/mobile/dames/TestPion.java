@@ -13,17 +13,25 @@ public class TestPion extends TestCase {
      * Methode pour la création des test de la classe Pion.
      */
     public void testCreer() {
-        String couleur1 = "Noir";
+        Pion.Couleur couleur1 = Pion.Couleur.Noir;
         Pion pion1 = new Pion(couleur1);
 
-        String couleur2 = "Blanc";
+        Pion.Couleur couleur2 = Pion.Couleur.Blanc;
         Pion pion2 = new Pion(couleur2);
 
         Pion pion3 = new Pion();
 
-        assertEquals("Noir", pion1.getCouleur());
-        assertEquals("Blanc", pion2.getCouleur());
-        assertEquals("Blanc", pion3.getCouleur());
+        assertEquals(Pion.Couleur.Noir, pion1.getCouleur());
+        assertEquals(Pion.Couleur.Blanc, pion2.getCouleur());
+        assertEquals(Pion.Couleur.Blanc, pion3.getCouleur());
+
+        assertTrue(pion1.estNoir());
+        assertFalse(pion2.estNoir());
+        assertFalse(pion3.estNoir());
+
+        assertEquals("P", pion1.getRepresentation());
+        assertEquals("p", pion2.getRepresentation());
+        assertEquals("p", pion3.getRepresentation());
 
     }
 }

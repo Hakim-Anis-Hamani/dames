@@ -7,14 +7,14 @@ package cstjean.mobile.dames;
  */
 public class Pion {
     /**Couleur du pion.*/
-    private final String couleur;
+    private final Couleur couleur;
 
     /**
      * Constructeur.
      *
      * @param couleur du pion créé
      */
-    public Pion(String couleur) {
+    public Pion(Couleur couleur) {
         this.couleur = couleur;
     }
 
@@ -22,7 +22,7 @@ public class Pion {
      * Constructeur défault pour un pion.
      */
     public Pion() {
-        this.couleur = "Blanc";
+        this.couleur = Couleur.Blanc;
     }
 
     /**
@@ -30,7 +30,37 @@ public class Pion {
      *
      * @return couleur du pion
      */
-    public String getCouleur() {
+    public Couleur getCouleur() {
         return couleur;
     }
+
+    public Boolean estNoir() {
+        if (this.couleur == Couleur.Noir) {
+            return true;
+        }
+        else {
+            return false;
+        }
+    }
+
+    public String getRepresentation() {
+        return couleur.representaionGraphique;
+    }
+
+    /**
+     * Énumération qui détien les couleurs possibles.
+     *
+     *
+     */
+    public enum Couleur {
+        Blanc("p"),
+        Noir("P");
+
+        private final String representaionGraphique;
+
+        private Couleur(String representaionGraphique) {
+            this.representaionGraphique = representaionGraphique;
+        }
+    }
+
 }

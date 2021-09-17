@@ -1,7 +1,9 @@
 package cstjean.mobile.dames;
 
+import java.util.LinkedHashMap;
 import java.util.LinkedList;
 import java.util.List;
+import java.util.Map;
 
 /**
  * Information pour l'objet Damier.
@@ -11,18 +13,63 @@ import java.util.List;
 public class Damier {
 
     /**Positions du damier.*/
-    private final List<Pion> damier = new LinkedList<>();
+    private final Map<Integer, Pion> damier = new LinkedHashMap<>();
 
-    /** Nombre de pion sur le damier.*/
-    private int nombrePion = 0;
+    static final String SAUT_LIGNE = System.getProperty("line.separator");
 
     /**
      * Constructeur d'un damier avec la création des 50 cases jouables.
      */
     public Damier() {
         for (int i = 0; i < 50; i++) {
-            damier.add(null);
+            damier.put(i, null);
         }
+    }
+
+    public void initialiser() {
+
+        for (int i = 0; i < 50; i++) {
+            if(i < 20)
+                damier.put(i, new Pion(Pion.Couleur.Noir));
+
+            if(i > 29)
+                damier.put(i, new Pion(Pion.Couleur.Blanc));
+        }
+        for (int i = 0; i < 50; i++) {
+            if(i < 20)
+                builder
+
+            if(i > 29)
+                damier.put(i, new Pion(Pion.Couleur.Blanc));
+        }
+
+        StringBuilder builder = new StringBuilder();
+        int compteur = 0;
+        for (Integer key : damier.keySet()) {
+            Pion pion = damier.get(key);
+            if (pion != null && (pion.estNoir() || pion.getCouleur() == Pion.Couleur.Blanc)) {
+               if (compteur < 5) {
+                compteur++;
+                builder.append("-").append(pion.getRepresentation());
+                   if (compteur == 5){
+                       builder.append(SAUT_LIGNE);
+                   }
+               }
+                if (compteur >= 5) {
+                    compteur++;
+                    builder.append(pion.getRepresentation()).append("-");
+                    if (compteur == 10){
+                        builder.append(SAUT_LIGNE);
+                    }
+                }
+                if (compteur >= 10){
+                    compteur = 0;
+                }
+            }
+        }
+        System.out.println(builder.toString().length());
+        System.out.println(builder);
+
     }
 
     /**
@@ -32,8 +79,7 @@ public class Damier {
      * @param pion choisi pour être placé sur une certaine position .
      */
     public void ajouterPion(int position, Pion pion) {
-        damier.set(position, pion);
-        nombrePion++;
+        damier.put(position, pion);
     }
 
     /**
@@ -52,6 +98,14 @@ public class Damier {
      * @return le nombre de pion.
      */
     public int getNombrePions() {
-        return nombrePion;
+        int nombrePions = 0;
+
+        for (Integer key : damier.keySet()) {
+            Pion pion = damier.get(key);
+            if (pion != null) {
+                nombrePions++;
+            }
+        }
+        return nombrePions;
     }
 }
