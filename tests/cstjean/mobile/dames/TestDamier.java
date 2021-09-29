@@ -25,16 +25,16 @@ public class TestDamier extends TestCase {
 
         Damier damier = new Damier();
 
-        damier.ajouterPion(38, pion1);
+        damier.ajouterPion(39, pion1);
         assertEquals(1, damier.getNombrePions());
 
-        damier.ajouterPion(42, pion2);
+        damier.ajouterPion(43, pion2);
         assertEquals(2, damier.getNombrePions());
 
-        assertEquals(pion1, damier.getPion(38));
-        assertEquals(pion2, damier.getPion(42));
+        assertEquals(pion1, damier.getPion(39));
+        assertEquals(pion2, damier.getPion(43));
 
-        assertEquals(Pion.Couleur.Noir, damier.getPion(38).getCouleur());
+        assertEquals(Pion.Couleur.Noir, damier.getPion(39).getCouleur());
         damier.initialiser();
         String testDamier =
                 "-P-P-P-P-P" + Saut_Ligne +

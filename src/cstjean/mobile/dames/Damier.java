@@ -20,7 +20,7 @@ public class Damier {
      * Constructeur d'un damier avec la création des 50 cases jouables.
      */
     public Damier() {
-        for (int i = 0; i < 50; i++) {
+        for (int i = 1; i < 51; i++) {
             damier.put(i, null);
         }
     }
@@ -32,12 +32,12 @@ public class Damier {
      */
     public String initialiser() {
 
-        for (int i = 0; i < 50; i++) {
-            if (i < 20) {
+        for (int i = 1; i < 51; i++) {
+            if (i < 21) {
                 damier.put(i, new Pion(Pion.Couleur.Noir));
             }
 
-            if (i > 29) {
+            if (i > 30) {
                 damier.put(i, new Pion(Pion.Couleur.Blanc));
             }
         }
