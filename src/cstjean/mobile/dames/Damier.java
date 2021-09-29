@@ -1,8 +1,6 @@
 package cstjean.mobile.dames;
 
 import java.util.LinkedHashMap;
-import java.util.LinkedList;
-import java.util.List;
 import java.util.Map;
 
 /**
@@ -15,6 +13,7 @@ public class Damier {
     /**Positions du damier.*/
     private final Map<Integer, Pion> damier = new LinkedHashMap<>();
 
+    /**Saut de ligne.*/
     static final String SAUT_LIGNE = System.getProperty("line.separator");
 
     /**
@@ -26,50 +25,64 @@ public class Damier {
         }
     }
 
-    public void initialiser() {
+    /**
+     * Méthode permettant d'initialiser le damier.
+     *
+     * @return Représentation graphique du damier.
+     */
+    public String initialiser() {
 
         for (int i = 0; i < 50; i++) {
-            if(i < 20)
+            if (i < 20) {
                 damier.put(i, new Pion(Pion.Couleur.Noir));
+            }
 
-            if(i > 29)
+            if (i > 29) {
                 damier.put(i, new Pion(Pion.Couleur.Blanc));
+            }
         }
-        for (int i = 0; i < 50; i++) {
-            if(i < 20)
-                builder
-
-            if(i > 29)
-                damier.put(i, new Pion(Pion.Couleur.Blanc));
-        }
-
         StringBuilder builder = new StringBuilder();
+
         int compteur = 0;
         for (Integer key : damier.keySet()) {
             Pion pion = damier.get(key);
             if (pion != null && (pion.estNoir() || pion.getCouleur() == Pion.Couleur.Blanc)) {
-               if (compteur < 5) {
                 compteur++;
-                builder.append("-").append(pion.getRepresentation());
-                   if (compteur == 5){
-                       builder.append(SAUT_LIGNE);
-                   }
-               }
-                if (compteur >= 5) {
-                    compteur++;
-                    builder.append(pion.getRepresentation()).append("-");
-                    if (compteur == 10){
+                if (compteur <= 5) {
+                    builder.append("-").append(pion.getRepresentation());
+                    if (compteur == 5) {
                         builder.append(SAUT_LIGNE);
                     }
                 }
-                if (compteur >= 10){
+                if (compteur > 5) {
+                    builder.append(pion.getRepresentation()).append("-");
+                    if (compteur == 10 && key != 49) {
+                        builder.append(SAUT_LIGNE);
+                    }
+                }
+                if (compteur >= 10) {
+                    compteur = 0;
+                }
+            } else {
+                compteur++;
+                if (compteur <= 5) {
+                    builder.append("--");
+                    if (compteur == 5) {
+                        builder.append(SAUT_LIGNE);
+                    }
+                }
+                if (compteur > 5) {
+                    builder.append("--");
+                    if (compteur == 10) {
+                        builder.append(SAUT_LIGNE);
+                    }
+                }
+                if (compteur >= 10) {
                     compteur = 0;
                 }
             }
         }
-        System.out.println(builder.toString().length());
-        System.out.println(builder);
-
+        return builder.toString();
     }
 
     /**
@@ -104,6 +117,26 @@ public class Damier {
             Pion pion = damier.get(key);
             if (pion != null) {
                 nombrePions++;
+            }
+        }
+        return nombrePions;
+    }
+
+    /**
+     * Méthode permettant de retourner le nombre de pion d'une certaines couleur sur le damier.
+     *
+     * @param couleur demandé pour la recherche
+     * @return le nombre de pion d'une certaine couleur.
+     */
+    public int getNombrePionCouleur(Pion.Couleur couleur) {
+        int nombrePions = 0;
+
+        for (Integer key : damier.keySet()) {
+            Pion pion = damier.get(key);
+            if (pion != null) {
+                if (pion.getCouleur() == couleur) {
+                    nombrePions++;
+                }
             }
         }
         return nombrePions;

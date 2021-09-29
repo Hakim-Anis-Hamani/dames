@@ -34,31 +34,39 @@ public class Pion {
         return couleur;
     }
 
+    /**
+     * Méthode donnant un réponse boolean si le pion est de couleur noir.
+     *
+     * @return True ou False
+     */
     public Boolean estNoir() {
-        if (this.couleur == Couleur.Noir) {
-            return true;
-        }
-        else {
-            return false;
-        }
+
+        return this.couleur == Couleur.Noir;
     }
 
+    /**
+     * Méthode donnant un réponse boolean si le pion est de couleur noir.
+     *
+     * @return représentation graphique de la couleur du pion
+     */
     public String getRepresentation() {
         return couleur.representaionGraphique;
     }
 
     /**
-     * Énumération qui détien les couleurs possibles.
-     *
-     *
+     * Couleurs pouvant être attribuer à un pion.
      */
     public enum Couleur {
+        /** Couleur Blanche.*/
         Blanc("p"),
+
+        /** Couleur Noire.*/
         Noir("P");
 
+        /** Representaion graphique du pion.*/
         private final String representaionGraphique;
 
-        private Couleur(String representaionGraphique) {
+        Couleur(String representaionGraphique) {
             this.representaionGraphique = representaionGraphique;
         }
     }

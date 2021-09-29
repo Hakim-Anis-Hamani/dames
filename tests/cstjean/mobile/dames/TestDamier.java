@@ -14,6 +14,9 @@ public class TestDamier extends TestCase {
      */
 
     public void testCreer() {
+
+        final String Saut_Ligne = System.getProperty("line.separator");
+
         Pion.Couleur couleur1 = Pion.Couleur.Noir;
         Pion pion1 = new Pion(couleur1);
 
@@ -32,7 +35,22 @@ public class TestDamier extends TestCase {
         assertEquals(pion2, damier.getPion(42));
 
         assertEquals(Pion.Couleur.Noir, damier.getPion(38).getCouleur());
-
         damier.initialiser();
+        String testDamier =
+                "-P-P-P-P-P" + Saut_Ligne +
+                "P-P-P-P-P-" + Saut_Ligne +
+                "-P-P-P-P-P" + Saut_Ligne +
+                "P-P-P-P-P-" + Saut_Ligne +
+                "----------" + Saut_Ligne +
+                "----------" + Saut_Ligne +
+                "-p-p-p-p-p" + Saut_Ligne +
+                "p-p-p-p-p-" + Saut_Ligne +
+                "-p-p-p-p-p" + Saut_Ligne +
+                "p-p-p-p-p-";
+
+        assertEquals(damier.initialiser(), testDamier);
+
+        assertEquals(20, damier.getNombrePionCouleur(Pion.Couleur.Noir));
+
     }
 }
